@@ -1,0 +1,370 @@
+@CHARSET "UTF-8";
+
+/* 
+    Document   : main
+    Created on : 28.02.2009, 12:22:45
+    Author     : blue
+    Description:
+        Purpose of the stylesheet follows.
+*/ 
+
+* {
+	margin: 0;
+	padding: 0;
+}
+
+a,a:visited {
+	color: #000;
+	background: inherit;
+	text-decoration: none;
+}
+
+a:hover {
+	color: #74A050;
+	text-decoration: none;
+}
+
+blockquote {
+	float: left;
+	margin: 0.75em 0.75em 0 0;
+	padding: 0.3em;
+	border: 1px double #CCC;
+	border-width: 2px 0;
+	color: #333;
+	background: none;
+	text-align: left;
+	font: italic 1.6em/ 1.7em Georgia;
+}
+
+body {	
+	font: 0.69em Arial, Verdana, sans-serif;
+	line-height: 1.64em;
+	color: #555;
+}
+
+fieldset {
+	margin: 5px;
+	margin-top: 10px;
+	padding: 5px;
+	display: block;
+	border: 1px solid #DDDDDD;
+	background-color: #ffffff;
+}
+
+fieldset legend {
+	border: 1px solid #DDD;
+	background-color: #F4F9FC;
+	padding: 3px;
+}
+
+form {
+	display: block;
+	padding: 5px;
+	padding-top: 0px;
+}
+
+form * {
+	margin: 2px;
+}
+
+form label {
+	display: block;
+	font-weight: bold;
+}
+
+h1 {
+display: block;
+	font-size: 16px;
+	padding-bottom: 1px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+}
+
+h2 {
+	display: block;
+	border-top: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	padding: 5px;
+	margin-top: 15px;
+	font-size: 16px;
+}
+
+h3 {
+	display: block;
+	font-size: 16px;
+	padding-bottom: 1px;
+	margin-bottom: 5px;
+	border-bottom: 1px solid #CCC;
+}
+
+hr {
+	margin: 0px auto;
+	margin-top: 3px;
+	margin-bottom: 3px;
+	display: block;
+	border: 0px;
+	border-bottom: 1px solid #cccccc;
+}
+
+img {
+	border: 0;
+	display: inline;
+	padding: 0px;
+	margin: 0px;
+}
+
+input,textarea,select {
+	padding: 5px;
+	font: 400 1em verdana, sans-serif;
+	color: #000;
+	background: #fff;
+	border: 1px solid #CCC;
+	display: block;
+}
+
+/** input:hover,textarea:hover,select:hover {
+	color: #000;
+	background: #F4F9FC;
+	border: 1px solid #888;
+}
+
+input:focus,textarea:focus,select:focus {
+	color: #000;
+	background: #FFFFDD;
+	border: 1px solid #888;
+} */
+
+input.submit {
+	display: block;
+	color: #000;
+	font-size: 11px;
+	padding: 3px;
+	font-weight: bold;
+}
+
+p {
+	padding: 5px 0 5px 0;
+}
+
+p img {
+	padding: 5px;
+}
+
+table {
+	font-size: 12px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 5px;
+	border-spacing: 0px;
+	width: 100%;
+	margin-bottom: 5px;
+	border: 1px solid #000;
+}
+
+table tr {
+	
+}
+
+table tr:hover {
+	background-color: #CCC;
+}
+
+table tr:hover td {
+	color: #000;
+}
+
+table tr th {
+	text-align: left;
+	padding: 2px;
+	background-color: #000;
+	color: #fff;
+}
+
+table tr td {
+	padding: 2px;
+}
+
+ul {
+	font-size: 14px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+ul ul {
+	margin-left: 15px;
+}
+
+li img {
+	padding: 0px;
+}
+
+li {
+	border: 1px solid #000;
+	border-left: 3px solid #000;
+	vertical-align: middle;
+	padding-left: 5px;
+}
+
+li a:hover {
+	color: #EB4812;
+}
+
+li:hover {
+	background-color: #EEE;
+}
+
+li:hover a {
+	color: #EB4812;
+}
+
+.center {
+	text-align: center;
+}
+
+.clear {
+	clear: both;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
+
+.hidden {
+	display: none;
+}
+
+.bbcodes {
+	padding: 0px;
+	margin: 0px;
+}
+
+.bbcodes input {
+	display: inline;
+	min-width: 25px;
+	margin-right: 5px;
+	font-family: monospace;
+}
+
+.login-form {
+	display: block;
+	padding: 10px;
+	border: 2px black solid;
+	width: 400px;
+	margin: 0px auto;	
+}
+
+.login-form form {
+	margin: 0px;
+	padding: 0px;
+}
+
+.login-form input {
+	min-width: 355px;
+}
+
+.login-form input.mail {
+	background-image: url(../img/tux.png); 
+	background-repeat: no-repeat;	
+	background-position: 3px 6px; 
+	padding-left: 25px; 
+	font-weight: bold;
+}
+
+.login-form input.password {
+	background-image: url(../img/password.png); 
+	background-repeat: no-repeat;	
+	background-position: 3px 6px; 
+	padding-left: 25px; 
+	font-weight: bold;
+}
+
+.login-button {
+	margin: 0px auto;
+	width: 400px;
+	padding-left: 310px;
+}
+
+.login-button input {
+	margin: 0px auto;
+	border-top: 0px;
+}
+
+.login-button input:hover {
+	background: #FFFFDD;
+}
+
+.notablestyle {
+	border: 0px;
+	margin: 0px;
+}
+
+.notablestyle tr td {
+	text-align: center;
+}
+
+.notablestyle tr:hover {
+	background-color: #fff;
+}
+
+.notablestyle tr:hover td {
+	color: #555;
+}
+
+.userprofile {
+	margin: 0px auto;
+	width: 400px;
+}
+
+.smiley {
+	margin: 0px;
+	padding: 0px;
+	margin-right: 3px;
+}
+
+#container-o {
+	background-color: #fff;
+	margin-top: 0px;
+}
+
+#container-i {
+	margin: 0px auto;
+	margin-bottom: 0px;
+	width: 900px;
+}
+
+#container-i #content {
+	width: 710px;
+}
+
+#container-i #content #box {
+	border: 1px solid #CCC;
+	padding: 5px;
+	margin-top: 15px;
+}
+
+#container-i #side {
+	width: 180px;
+}
+
+#container-i #side #box {
+	border: 1px solid #CCC;
+	padding: 5px;
+	margin-top: 15px;
+}
+
+#container-i #side #box input {
+	font-size: 8px;
+}
+
+#footer {
+	width: 500px;
+	margin: 0px auto;
+	text-align: center;
+	margin-top: 5px;
+	margin-bottom: 10px;
+}
