@@ -33,7 +33,7 @@ if (!array_key_exists('p', $_GET)) {
 	}
 } else {
 	//check for intrusion
-	if (!ereg('\.\.', $_GET['p']) and !ereg('http', $_GET['p']) and is_file($_GET['p'])) {
+	if (!preg_match('/\.\./', $_GET['p']) and !preg_match('/http/', $_GET['p']) and is_file($_GET['p'])) {
 		//get filename
 		$file = explode('/', $_GET['p']);
 		$object = array_pop($file).array_pop($file);
