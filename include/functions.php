@@ -12,7 +12,8 @@ function get_mime_type($file, $print = false) {
 					'gif' => 'image',
 					'jpg' => 'image',
 					'png' => 'image',
-					'jpeg' => 'image',
+					'svg' => 'image',
+					'js' => 'image',
 					'js' => 'image',
 					'url' => 'link',
 					'log' => 'log',
@@ -79,7 +80,7 @@ function list_directory($directory) {
 }
 
 function get_list($list, $path = '', $html = '') {
-	$images = array('png', 'jpg', 'jpeg', 'gif');
+	$images = array('png', 'jpg', 'jpeg', 'gif', 'svg');
 	if (!is_array($list)) {
 		die('No array present.');
 	}
