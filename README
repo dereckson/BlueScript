@@ -1,0 +1,22 @@
+    BlueScript 1.0
+           by blue
+
+URL
+===
+Link ... http://devio.us/~blue/code/php/homepage/latest.tar.gz
+Demo ... http://devio.us/~blue/
+
+LICENSE
+=======
+Public domain
+
+AUTHOR'S PRESENTATION
+=====================
+I felt like  I should release the source  for my homepage at devio.us/~blue
+as  I already shared it  with some people  who wanted to have  a look at it.
+
+It's  nothing complicated,  a really simple layout-engine  with  some basic
+template-parsing/caching  and  a directory listing script. The jQuery stuff
+that makes the listing somewhat more beautiful is optional but yet included.
+
+                     Source: http://devio.us/forums/topic/105/bluescript-10/
