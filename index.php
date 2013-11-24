@@ -33,11 +33,11 @@ if (!array_key_exists('p', $_GET)) {
 	}
 } else {
 	//check for intrusion
-	if (!preg_match('/\.\./', $_GET['p']) and !preg_match('/http/', $_GET['p']) and is_file($_GET['p'])) {
+	if (can_include($_GET['p'])) {
 		//get filename
 		$file = explode('/', $_GET['p']);
 		$object = array_pop($file).array_pop($file);
-		
+
 		//check cache and output
 		$cache = $layout->getCache('index', $object);
 		if (!$cache) {
@@ -50,7 +50,7 @@ if (!array_key_exists('p', $_GET)) {
 			echo $cache;
 		}
 	} else {
-		die ('hahahaha');
+		die ("[ BlueScript | Page not found in the web directory. ]");
 	}
 }
 

@@ -106,4 +106,12 @@ function get_list($list, $path = '', $html = '') {
 	return $html;
 }
 
+/**
+ * Determines if the file could be included
+ *
+ * @param string $path
+ */
+function can_include ($path) {
+	return preg_match('@^\.\/@', $path) and !preg_match('/\.\./', $path) and !preg_match('/http/', $path) and is_file($path);
+}
 ?>
