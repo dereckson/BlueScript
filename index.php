@@ -4,7 +4,7 @@
 $blocked = array('.', '..', 'images', 'include', 'layouts', 'not', 'index.php', 'index.html');
 $path = './';
 
-/** ONLY MODIFY STUFF BELOW IF YOU NOW WHAT YOU ARE DOING **/
+/** ONLY MODIFY STUFF BELOW IF YOU KNOW WHAT YOU ARE DOING **/
 
 //folder definitons
 define('D_HOME', dirname(__FILE__).'/');
