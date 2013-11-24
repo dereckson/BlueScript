@@ -24,7 +24,7 @@ if (!array_key_exists('p', $_GET)) {
 	$cache = $layout->getCache('index', '_ni');
 	if (!$cache) {
 		$parser = $layout->getParser('index', '_ni', 3600);
-		$parser->assign('directory', get_list(list_directory('./'), './'));
+		$parser->assign('directory', get_list(list_directory($path), $path));
 		$parser->assign('include', false);
 		$parser->parse();
 		echo $parser->returnTemplate();
@@ -33,7 +33,7 @@ if (!array_key_exists('p', $_GET)) {
 	}
 } else {
 	//check for intrusion
-	if (can_include($_GET['p'])) {
+	if (can_include($_GET['p'], $path)) {
 		//get filename
 		$file = explode('/', $_GET['p']);
 		$object = array_pop($file).array_pop($file);
@@ -42,7 +42,7 @@ if (!array_key_exists('p', $_GET)) {
 		$cache = $layout->getCache('index', $object);
 		if (!$cache) {
 			$parser = $layout->getParser('index', $object, 3600);
-			$parser->assign('directory', get_list(list_directory('./'), './'));
+			$parser->assign('directory', get_list(list_directory($path), $path));
 			$parser->assign('include', file_get_contents($_GET['p']));
 			$parser->parse();
 			echo $parser->returnTemplate();
