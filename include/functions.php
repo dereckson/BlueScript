@@ -115,4 +115,3 @@ function can_include ($path, $content_path) {
 	if (preg_match('/\.\./', $path) || !is_file($path)) return false;
     return strpos($path, $content_path) === 0;
 }
-?>

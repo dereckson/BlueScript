@@ -53,5 +53,3 @@ if (!array_key_exists('p', $_GET)) {
 		die ("[ BlueScript | Page not found in the web directory. ]");
 	}
 }
-
-?>

@@ -41,7 +41,7 @@ class layout {
 	 */
 	public function __construct($layout) {
 		$this->layout = $layout;
-		
+
 		$this->layout_parser = new layout_parser();		//init onetime layout parser
 		$this->layout_parser->setLayout($this->layout);
 		$this->layout_cache = new layout_cache($this->layout);		//init onetime layout cache
@@ -95,5 +95,3 @@ class layout {
 		}
 	}
 }
-
-?>

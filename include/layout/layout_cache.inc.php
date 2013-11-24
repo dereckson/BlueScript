@@ -106,4 +106,3 @@ class layout_cache {
 		}
 	}
 }
-?>
