@@ -62,6 +62,10 @@ function list_directory($directory) {
 
     $dir = dir($directory);
 	while (false !== ($file = $dir->read())) {
+		if ($file[0] == '.') {
+			continue;
+		}
+
 		if (in_array($file, $blocked)) {
 	   		continue;
 	   	}
