@@ -229,7 +229,13 @@ class layout_parser {
 	 * @return string
 	 */
 	protected function parseNoParse($template) {
-		$template = preg_replace ('/\{noparse\}(.*?)\{\/noparse\}/ise', '$this->assignNoParse(\'\1\')', $template); // {noparse} {/noparse}
+		$template = preg_replace_callback (
+			'/\{noparse\}(.*?)\{\/noparse\}/is',
+			function ($matches) {
+				return $this->assignNoParse($matches[1]);
+			},
+			$template
+		); // {noparse} {/noparse}
 		return $template;
 	}
 
@@ -252,8 +258,20 @@ class layout_parser {
 	 * @return string
 	 */
 	protected function parseIf($template) {
-		$template = preg_replace('/\{if (.*?)\}(.*?)\{else\}(.*?){\/if\}/ise', '$this->assignIf(\'\1\', \'\2\', \'\3\')', $template); // {if expression == expression} $content {/if}
-		$template = preg_replace('/\{if (.*?)\}(.*?)\{\/if\}/ise', '$this->assignIf(\'\1\', \'\2\')', $template); // {if expression == expression} $content {/if}
+		$template = preg_replace_callback(
+			'/\{if (.*?)\}(.*?)\{else\}(.*?){\/if\}/is',
+			function ($matches) {
+				return $this->assignIf($matches[1], $matches[2], $matches[3]);
+			},
+			$template
+		); // {if expression == expression} $content1 {else} $content2 {/if}
+		$template = preg_replace_callback(
+			'/\{if (.*?)\}(.*?)\{\/if\}/is',
+			function ($matches) {
+				return $this->assignIf($matches[1], $matches[2]);
+			},
+			$template
+		); // {if expression == expression} $content {/if}
 		return stripcslashes($template);
 	}
 
@@ -262,7 +280,7 @@ class layout_parser {
 	 *
 	 * @param string $condition
 	 * @param string $if
-	 * @param string $else
+ 	 * @param string $else
 	 * @return string
 	 */
 	protected function assignIf($condition, $if, $else = '') {
@@ -283,7 +301,15 @@ class layout_parser {
 	 * @return string
 	 */
 	protected function parsePhp($template) {
-		$template = preg_replace ('/\{php\}(.*?)\{\/php\}/ise', '\1', $template); // {php} {/php}
+		$template = preg_replace_callback(
+			'/\{php\}(.*?)\{\/php\}/is',
+			function ($matches) {
+				ob_start();
+				eval($matches[1]);
+				return ob_get_clean();
+			},
+			$template
+		); // {php} {/php}
 		return $template;
 	}
 
@@ -294,7 +320,13 @@ class layout_parser {
 	 * @return string
 	 */
 	protected function parseLoop($template) {
-		$template = preg_replace('/\{loop \$(.*?)\}(.*?)\{\/loop\}/ise', '$this->assignLoop(\'\1\', \'\2\')', $template); // {loop $myloop} $myloop_loop['test'] {/loop}
+		$template = preg_replace_callback(
+			'/\{loop \$(.*?)\}(.*?)\{\/loop\}/is',
+			function ($matches) {
+				return $this->assignLoop($matches[1], $matches[2]);
+			},
+			$template
+		); // {loop $myloop} $myloop_loop['test'] {/loop}
 		return $template;
 	}
 
@@ -330,7 +362,13 @@ class layout_parser {
 	 * @return string
 	 */
 	protected function parseVars($template) {
-		$template = preg_replace ('/\{\$(.*?)\}/ise', '$this->assignVar("\1")', $template); // {$var}
+		$template = preg_replace_callback(
+			'/\{\$(.*?)\}/is',
+			function ($matches) {
+				return $this->assignVar($matches[1]);
+			},
+			$template
+		); // {$var}
 		return $template;
 	}
 
