@@ -18,11 +18,12 @@ require_once(D_INCLUDE.'layout/layout_parser.inc.php');
 require_once(D_INCLUDE.'layout/layout_cache.inc.php');
 
 $layout = new layout('blue');
+$purge = array_key_exists('purge', $_GET) && $_GET['purge'];
 
 //get cache for no includes
 if (!array_key_exists('p', $_GET)) {
 	$cache = $layout->getCache('index', '_ni');
-	if (!$cache) {
+	if (!$cache || $purge) {
 		$parser = $layout->getParser('index', '_ni', 3600);
 		$parser->assign('directory', get_list(list_directory($path), $path));
 		$parser->assign('include', false);
@@ -40,7 +41,7 @@ if (!array_key_exists('p', $_GET)) {
 
 		//check cache and output
 		$cache = $layout->getCache('index', $object);
-		if (!$cache) {
+		if (!$cache || $purge) {
 			$parser = $layout->getParser('index', $object, 3600);
 			$parser->assign('directory', get_list(list_directory($path), $path));
 			$parser->assign('include', file_get_contents($_GET['p']));
